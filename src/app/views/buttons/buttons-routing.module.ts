@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { ButtonsComponent } from './buttons/buttons.component';
-import { ButtonGroupsComponent } from './button-groups/button-groups.component';
-import { DropdownsComponent } from './dropdowns/dropdowns.component';
+import { ButtonsComponent } from './buttons.component';
+import { DropdownsComponent } from './dropdowns.component';
+import { BrandButtonsComponent } from './brand-buttons.component';
 
 const routes: Routes = [
   {
@@ -14,7 +14,6 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        pathMatch: 'full',
         redirectTo: 'buttons'
       },
       {
@@ -25,27 +24,25 @@ const routes: Routes = [
         }
       },
       {
-        path: 'button-groups',
-        component: ButtonGroupsComponent,
-        data: {
-          title: 'Button groups'
-        }
-      },
-      {
         path: 'dropdowns',
         component: DropdownsComponent,
         data: {
           title: 'Dropdowns'
         }
       },
+      {
+        path: 'brand-buttons',
+        component: BrandButtonsComponent,
+        data: {
+          title: 'Brand buttons'
+        }
+      }
     ]
   }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ButtonsRoutingModule {
-}
+export class ButtonsRoutingModule {}

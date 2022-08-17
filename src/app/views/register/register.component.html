@@ -1,0 +1,290 @@
+<p-toast></p-toast>
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 mx-auto">
+          <div class="card">
+            <div class="card-header">
+
+              <div class="spinner-border" [hidden]="province.length>0" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <strong>Registration Form</strong>
+            </div>
+            <div class="card-body">
+              <br>
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-sm-4 form-group">
+                    <label>Province <span style="color: red;">*</span> </label>
+                    <!-- [disabled]="province.length==0"  -->
+                    <p-dropdown [disabled]="province.length==0" [options]="province" (onChange)="onChangeProvince('')"
+                      placeholder="Please Select Province" formControlName="selectedProvince" optionLabel="name">
+                    </p-dropdown>
+
+
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <label>Municiplality <span style="color: red;">*</span> </label>
+                    <!-- [disabled]="municiplality.length==0" -->
+                    <p-dropdown [disabled]="municiplality.length==0" [options]="municiplality"
+                      placeholder="Please Select Municiplality" (onChange)="onChangeMuniciplality('')"
+                      formControlName="selectedMuniciplality" optionLabel="name">
+                    </p-dropdown>
+
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <label>Barangay <span style="color: red;">*</span> </label>
+                    <!-- [disabled]="barangay.length==0" -->
+                    <p-dropdown [disabled]="barangay.length==0" [options]="barangay"
+                      placeholder="Please Select Barangay" formControlName="selectedBarangay" optionLabel="name">
+                    </p-dropdown>
+                    <!-- <div *ngIf="submitted && form.selectedBarangay.errors" class="invalid-feedback">
+                      <div *ngIf="form.selectedBarangay.errors.required">Fullname is required</div>
+                    </div> -->
+                  </div>
+                </div>
+                <br>
+                <div class="row form-group">
+                  <div class="col-sm-12">
+                    <label>Address</label>
+                    <textarea [rows]="3" placeholder="Enter Address" formControlName="address" class="custwidth100"
+                      pInputTextarea autoResize="false"></textarea>
+                  </div>
+                </div>
+                <br>
+                <div class="field-checkbox">
+                  <p-checkbox [(ngModel)]="paddchecked" (onChange)="chkPAS(paddchecked)"
+                    [ngModelOptions]="{standalone: true}" [binary]="true" inputId="binary"></p-checkbox> &nbsp;&nbsp;
+                  Permanent Address Same As Above
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 form-group">
+                    <label>Province <span style="color: red;">*</span> </label>
+                    <!-- [disabled]="province.length==0"  -->
+                    <p-dropdown [disabled]="province.length==0" [options]="province" (onChange)="onChangePProvince('')"
+                      placeholder="Please Select Province" formControlName="selectedPProvince" optionLabel="name">
+                    </p-dropdown>
+
+
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <label>Municiplality <span style="color: red;">*</span> </label>
+                    <!-- [disabled]="municiplality.length==0" -->
+                    <p-dropdown [disabled]="municiplality.length==0" [options]="municiplality"
+                      placeholder="Please Select Municiplality" (onChange)="onChangePMuniciplality('')"
+                      formControlName="selectedPMuniciplality" optionLabel="name">
+                    </p-dropdown>
+
+                  </div>
+                  <div class="col-sm-4 form-group">
+                    <label>Barangay <span style="color: red;">*</span> </label>
+                    <!-- [disabled]="barangay.length==0" -->
+                    <p-dropdown [disabled]="barangay.length==0" [options]="barangay"
+                      placeholder="Please Select Barangay" formControlName="selectedPBarangay" optionLabel="name">
+                    </p-dropdown>
+                    <!-- <div *ngIf="submitted && form.selectedBarangay.errors" class="invalid-feedback">
+                      <div *ngIf="form.selectedBarangay.errors.required">Fullname is required</div>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-12">
+                    <label>Permanent Address</label>
+                    <textarea [rows]="3" placeholder="Enter Address" formControlName="paddress" class="custwidth100"
+                      pInputTextarea autoResize="false"></textarea>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-4">
+                    <label>Senior Citizen ID <span style="color: red;">*</span> </label>
+                    <input id="float-input" placeholder="Enter Senior Citizen ID" formControlName="seniorCitizenID"
+                      class="custwidth100" type="text" pInputText>
+
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-4">
+                    <label>First Name <span style="color: red;">*</span> </label>
+                    <input id="float-input" placeholder="Enter First Name" formControlName="firstName"
+                      class="custwidth100" type="text" pInputText>
+                    <!-- <div *ngIf="submitted && form.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="form.firstName.errors.required">Fullname is required</div>
+                    </div> -->
+                  </div>
+                  <div class="col-sm-4">
+                    <label>Middle Name <span style="color: red;">*</span> </label>
+                    <input id="float-input" placeholder="Enter Middle Name" class="custwidth100"
+                      formControlName="middleName" type="text" pInputText>
+                    <!-- <div *ngIf="submitted && form.middleName.errors" class="invalid-feedback">
+                      <div *ngIf="form.middleName.errors.required">Middle Name is required</div>
+                    </div> -->
+                  </div>
+                  <div class="col-sm-4">
+                    <label>Last Name <span style="color: red;">*</span> </label>
+                    <input id="float-input" placeholder="Enter Last Name" formControlName="lastName"
+                      class="custwidth100" type="text" pInputText>
+
+                    <!-- <div *ngIf="submitted && form.lastName.errors" class="invalid-feedback">
+                      <div *ngIf="form.lastName.errors.required">Last Name is required</div>
+                    </div> -->
+                  </div>
+                </div>
+                <!--/.row-->
+                <br>
+                <div class="row form-group">
+
+                  <div class="col-sm-6">
+                    <label>Date of Birth(Age:{{age}}) <span style="color: red;">*</span> </label>
+                    <p-calendar [showIcon]="true" formControlName="dob" [style]="{ 'width': '100%'}"
+                      placeholder="Date of Birth" m (onSelect)="calculateAge()">
+                    </p-calendar>
+
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Place of Birth</label>
+                    <input id="float-input" placeholder="Enter Place of Birth" formControlName="placeofbirth"
+                      class="custwidth100" type="text" pInputText>
+
+                  </div>
+                </div>
+
+
+                <br>
+                <div class="row form-group">
+
+                  <div class="col-sm-4">
+                    <label>Mobile Number <span style="color: red;">*</span> </label>
+                    <input placeholder="Enter Mobile Number" required (keypress)="keyPress($event)" maxlength="11"
+                      id="float-input" formControlName="mobilenumber" class="custwidth100" type="text" pInputText>
+                    <!-- <div *ngIf="submitted && form.mobilenumber.errors" class="invalid-feedback">
+                      <div *ngIf="form.mobilenumber.errors.required">Mobile Number is required</div>
+                    </div> -->
+                  </div>
+                  <div class="col-sm-4">
+                    <label>Email id <span style="color: red;">*</span> </label>
+                    <input required placeholder="Enter Email id" id="float-input" formControlName="email"
+                      class="custwidth100" type="text" pInputText>
+                    <!-- <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                      <div *ngIf="form.email.errors.required">Email is required</div>
+                      <div *ngIf="form.email.errors.email">Email is invalid</div>
+                    </div> -->
+                  </div>
+                  <div class="col-sm-4">
+                    <label>Nature of work</label>
+                    <input id="float-input" placeholder="Enter Nature of work" formControlName="natureofwork"
+                      class="custwidth100" type="text" pInputText>
+
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <label>Gender <span style="color: red;">*</span> </label>
+                    <p-dropdown [options]="gender" formControlName="selectedGender" [disabled]="gender.length==0"
+                      placeholder="Please Select Gender" optionLabel="name">
+                    </p-dropdown>
+                    <!-- <div *ngIf="submitted && form.selectedGender.errors">
+                      <div *ngIf="form.selectedGender.errors.required">Gender is required</div>
+                    </div> -->
+                  </div>
+                  <div class="col-sm-4">
+                    <label>Blood Group</label>
+                    <p-dropdown [options]="bloodgroup" formControlName="selectedBloodGroup"
+                      [disabled]="bloodgroup.length==0" placeholder="Please Select Blood Group" optionLabel="name">
+                    </p-dropdown>
+
+
+                  </div>
+
+                  <div class="col-sm-4">
+                    <label>Nationality <span style="color: red;">*</span></label>
+                    <p-dropdown [options]="nationality" formControlName="selectedNationality"
+                      [disabled]="nationality.length==0" placeholder="Please Select Nationality" optionLabel="name">
+                    </p-dropdown>
+
+
+                  </div>
+                </div> <br> <br>
+                <div class="form-group">
+                  <button type="submit" [disabled]="form.invalid" class="btn btn-primary float-right"
+                    style="margin-left: 10px;">Register</button>
+                  <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+                    Reset
+                  </button>
+                </div>
+              </form>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+        <!--/.col-->
+        <!-- <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form>
+                <h1>Register</h1>
+                <p class="text-muted">Create your account</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                </div>
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
+                </div>
+                <button type="button" class="btn btn-block btn-success">Create Account</button>
+              </form>
+            </div>
+            <div class="card-footer p-4">
+              <div class="row">
+                <div class="col-6">
+                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<p-dialog header="Instruction" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false"
+  [resizable]="false">
+  <p class="m-0">Instruction<br>
+    Step 1) Please check email on register email id<br>
+    Step 2) Click the link for verify email and set on time password<br>
+    Step 3) Once you set password login to system to book appointment.
+
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="CloseAndReset()" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

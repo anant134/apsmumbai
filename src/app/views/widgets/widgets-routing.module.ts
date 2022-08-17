@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { WidgetsComponent } from './widgets/widgets.component';
+import { Routes, RouterModule } from '@angular/router';
+
+import { WidgetsComponent } from './widgets.component';
 
 const routes: Routes = [
   {
@@ -12,10 +13,8 @@ const routes: Routes = [
   }
 ];
 
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WidgetsRoutingModule {
-}
+export class WidgetsRoutingModule {}

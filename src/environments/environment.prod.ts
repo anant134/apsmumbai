@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  api_root: "https://lgu-demo.smartpay.ph/lguphp/",
 };

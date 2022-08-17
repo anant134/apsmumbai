@@ -1,54 +1,49 @@
+// Angular
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
-// CoreUI Modules
-import {
-  AccordionModule,
-  BadgeModule,
-  BreadcrumbModule,
-  ButtonModule,
-  CardModule,
-  CarouselModule,
-  CollapseModule,
-  DropdownModule,
-  FormModule,
-  GridModule,
-  ListGroupModule,
-  NavModule,
-  PaginationModule,
-  PlaceholderModule,
-  PopoverModule,
-  ProgressModule,
-  SharedModule,
-  SpinnerModule,
-  TableModule,
-  TabsModule,
-  TooltipModule,
-  UtilitiesModule
-} from '@coreui/angular';
+import { CardsComponent } from './cards.component';
 
-import { IconModule } from '@coreui/icons-angular';
+// Forms Component
+import { FormsComponent } from './forms.component';
 
-// utils
-import { DocsComponentsModule } from '@docs-components/docs-components.module';
+import { SwitchesComponent } from './switches.component';
+import { TablesComponent } from './tables.component';
 
-// views
-import { AccordionsComponent } from './accordion/accordions.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
-import { CardsComponent } from './cards/cards.component';
-import { CarouselsComponent } from './carousels/carousels.component';
-import { CollapsesComponent } from './collapses/collapses.component';
-import { ListGroupsComponent } from './list-groups/list-groups.component';
-import { NavsComponent } from './navs/navs.component';
-import { PaginationsComponent } from './paginations/paginations.component';
-import { PlaceholdersComponent } from './placeholders/placeholders.component';
-import { PopoversComponent } from './popovers/popovers.component';
-import { ProgressComponent } from './progress/progress.component';
-import { SpinnersComponent } from './spinners/spinners.component';
-import { TablesComponent } from './tables/tables.component';
-import { TooltipsComponent } from './tooltips/tooltips.component';
-import { TabsComponent } from './tabs/tabs.component';
+// Tabs Component
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TabsComponent } from './tabs.component';
+
+// Carousel Component
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarouselsComponent } from './carousels.component';
+
+// Collapse Component
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { CollapsesComponent } from './collapses.component';
+
+// Dropdowns Component
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+// Pagination Component
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PopoversComponent } from './popovers.component';
+
+// Popover Component
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { PaginationsComponent } from './paginations.component';
+
+// Progress Component
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { ProgressComponent } from './progress.component';
+
+// Tooltip Component
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipsComponent } from './tooltips.component';
+
+// navbars
+import { NavbarsComponent } from './navbars/navbars.component';
 
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
@@ -56,50 +51,30 @@ import { BaseRoutingModule } from './base-routing.module';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     BaseRoutingModule,
-    AccordionModule,
-    BadgeModule,
-    BreadcrumbModule,
-    ButtonModule,
-    CardModule,
-    CollapseModule,
-    GridModule,
-    UtilitiesModule,
-    SharedModule,
-    ListGroupModule,
-    IconModule,
-    ListGroupModule,
-    PlaceholderModule,
-    ProgressModule,
-    SpinnerModule,
+    BsDropdownModule.forRoot(),
     TabsModule,
-    NavModule,
-    TooltipModule,
-    CarouselModule,
-    FormModule,
-    ReactiveFormsModule,
-    DropdownModule,
-    PaginationModule,
-    PopoverModule,
-    TableModule,
-    DocsComponentsModule,
+    CarouselModule.forRoot(),
+    CollapseModule.forRoot(),
+    PaginationModule.forRoot(),
+    PopoverModule.forRoot(),
+    ProgressbarModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   declarations: [
-    AccordionsComponent,
-    BreadcrumbsComponent,
     CardsComponent,
+    FormsComponent,
+    SwitchesComponent,
+    TablesComponent,
+    TabsComponent,
     CarouselsComponent,
     CollapsesComponent,
-    ListGroupsComponent,
-    NavsComponent,
     PaginationsComponent,
     PopoversComponent,
     ProgressComponent,
-    SpinnersComponent,
-    TablesComponent,
     TooltipsComponent,
-    TabsComponent,
-    PlaceholdersComponent,
-  ],
+    NavbarsComponent
+  ]
 })
-export class BaseModule {}
+export class BaseModule { }

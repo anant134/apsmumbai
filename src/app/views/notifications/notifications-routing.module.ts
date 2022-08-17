@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { BadgesComponent } from './badges/badges.component';
-import { AlertsComponent } from './alerts/alerts.component';
-import { ModalsComponent } from './modals/modals.component';
-import { ToastersComponent } from './toasters/toasters.component';
+import { AlertsComponent } from './alerts.component';
+import { BadgesComponent } from './badges.component';
+import { ModalsComponent } from './modals.component';
 
 const routes: Routes = [
   {
@@ -15,8 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        pathMatch: 'full',
-        redirectTo: 'badges'
+        redirectTo: 'alerts'
       },
       {
         path: 'alerts',
@@ -33,17 +31,10 @@ const routes: Routes = [
         }
       },
       {
-        path: 'modal',
+        path: 'modals',
         component: ModalsComponent,
         data: {
-          title: 'Modal'
-        }
-      },
-      {
-        path: 'toasts',
-        component: ToastersComponent,
-        data: {
-          title: 'Toasts'
+          title: 'Modals'
         }
       }
     ]
@@ -54,5 +45,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NotificationsRoutingModule {
-}
+export class NotificationsRoutingModule {}

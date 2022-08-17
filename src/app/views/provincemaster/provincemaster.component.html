@@ -1,0 +1,89 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-6 pull-left">
+            <h5>Province Master</h5>
+        </div>
+        <!-- (click)="openModalApplicant(template)" -->
+        <div class="col-lg-6 pull-right" style="text-align: end;">
+            <button class="btn btn-primary float-right">Add </button>
+
+        </div>
+
+    </div>
+    <br>
+    <p-table [value]="provinceInfo">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Country Name
+                </th>
+                <th>Province Name
+                </th>
+
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-province>
+            <tr>
+                <td>{{province.countryname}} </td>
+                <td>{{province.name}} </td>
+                <td style="text-align: right;">
+                    <button class="btn btn-primary" style="text-align: center;"
+                        (click)="openModal(template,province)">Edit</button>
+                    <!-- <button class="btn btn-primary float-right" (click)="delete(country)">delete</button>
+                    </button> -->
+                </td>
+            </tr>
+
+        </ng-template>
+    </p-table>
+    <ng-template #template>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">{{modelpopuptitle}}</h4><br>
+
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formcountry" (ngSubmit)="onSubmit()">
+                <div class="row mt-2 d-flex align-items-stretch">
+                    <div class="col-md-6 col-xl-6 col-xxl-6 col-sm-12">
+                        <div class="form-group">
+                            <div class="p-field">
+                                <label for="input" required class="mt-1">Country
+                                    Name</label>
+                                <input formControlName="name" id="name" [focus]="f.name.invalid ? true: false"
+                                    placeholder="Enter Country Name" tabindex="0" type="text" class="form-control"
+                                    type="text" pInputText>
+                                <div *ngIf="f.name.touched && f.name.invalid">
+                                    <small *ngIf="f.name.errors?.required" class="p-error">Country Name is
+                                        required.</small>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-6 col-xxl-6 col-sm-12">
+                        <div class="form-group">
+                            <div class="p-field">
+                                <label for="input" required class="mt-1">Country
+                                    Code</label>
+                                <input formControlName="code" id="code" placeholder="Enter Country code" tabindex="0"
+                                    type="text" class="form-control" type="text" pInputText>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button #smtbtn appSingleClick class="btn btn-primary mt-3 pull-right" type="submit"
+                    [disabled]="(formcountry.invalid )">Submit
+                    <!-- <div class="spinner-border spinner-border-sm text-light" role="status" *ngIf="globalService.loader">
+                        <span class="visually-hidden">Loading...</span>
+                    </div> -->
+                </button>
+            </form>
+        </div>
+    </ng-template>
+
+
+</div>
