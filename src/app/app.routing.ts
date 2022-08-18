@@ -10,6 +10,7 @@ import { P404Component } from "./views/error/404.component";
 import { P500Component } from "./views/error/500.component";
 import { LoginComponent } from "./views/login/login.component";
 import { ForgetpasswordComponent } from "./views/forgetpassword/forgetpassword.component";
+
 import { ResetpasswordComponent } from "./views/resetpassword/resetpassword.component";
 import { RegisterComponent } from "./views/register/register.component";
 import { SlotmasterComponent } from "./views/slotmaster/slotmaster.component";
@@ -20,6 +21,7 @@ import { ProvincemasterComponent } from "./views/provincemaster/provincemaster.c
 import { BarangaymasterComponent } from "./views/barangaymaster/barangaymaster.component";
 import { MuniciplalitymasterComponent } from "./views/municiplalitymaster/municiplalitymaster.component";
 import { DevicemasterComponent } from "./views/devicemaster/devicemaster.component";
+import { ChangepasswordComponent } from "./views/changepassword/changepassword.component";
 
 export const routes: Routes = [
   // {
@@ -62,6 +64,13 @@ export const routes: Routes = [
     component: ForgetpasswordComponent,
     data: {
       title: "Forget Password",
+    },
+  },
+  {
+    path: "changepassword",
+    component: ChangepasswordComponent,
+    data: {
+      title: "Change Password",
     },
   },
   {

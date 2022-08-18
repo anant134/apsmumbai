@@ -66,7 +66,8 @@ import { MuniciplalitymasterComponent } from "./views/municiplalitymaster/munici
 import { BarangaymasterComponent } from "./views/barangaymaster/barangaymaster.component";
 import { DevicemasterComponent } from "./views/devicemaster/devicemaster.component";
 import { ForgetpasswordComponent } from "./views/forgetpassword/forgetpassword.component";
-import { ResetpasswordComponent } from './views/resetpassword/resetpassword.component';
+import { ResetpasswordComponent } from "./views/resetpassword/resetpassword.component";
+import { ChangepasswordComponent } from "./views/changepassword/changepassword.component";
 @NgModule({
   imports: [
     BrowserModule,
@@ -115,6 +116,7 @@ import { ResetpasswordComponent } from './views/resetpassword/resetpassword.comp
     DevicemasterComponent,
     ForgetpasswordComponent,
     ResetpasswordComponent,
+    ChangepasswordComponent,
   ],
   providers: [
     {

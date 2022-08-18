@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  //api_root: "http://localhost:80/DataCapturing_php/",
-  api_root: "https://lgu-demo.smartpay.ph/lguphp/",
+  api_root: "http://localhost:80/DataCapturing_php/",
+  // api_root: "https://lgu-demo.smartpay.ph/lguphp/",
 };

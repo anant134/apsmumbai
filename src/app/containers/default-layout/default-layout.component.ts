@@ -36,8 +36,7 @@ export class DefaultLayoutComponent {
           : [];
 
       //if admin show all
-      console.log();
-      debugger;
+
       if (
         this.userSessionInfo[0].isSuperAdmin == "1" ||
         this.userSessionInfo[0].isAdmin == "1"
@@ -84,7 +83,6 @@ export class DefaultLayoutComponent {
             icon: "",
           }
         );
-      } else {
       }
     }
   }
